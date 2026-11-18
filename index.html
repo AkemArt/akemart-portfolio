@@ -1,11 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AkemArtDev | Portfólio & Desenvolvedora</title>
-    <!-- Tailwind CSS CDN -->
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -20,254 +23,600 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        
-/* Player SoundCloud flutuante */
-.soundcloud-player {
-    position: fixed;
-    bottom: 18px;
-    right: 18px;
-    width: 340px;
-    max-width: calc(100vw - 36px);
-    z-index: 1000;
-    padding: 8px;
-    background: rgba(22, 27, 34, 0.94);
-    border: 1px solid rgba(236, 72, 153, 0.55);
-    
-/* Player SoundCloud compacto */
-.soundcloud-player {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    width: 280px;
-    max-width: calc(100vw - 30px);
-    z-index: 1000;
-    padding: 5px;
-    background: rgba(22, 27, 34, 0.94);
-    border: 1px solid rgba(236, 72, 153, 0.55);
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    backdrop-filter: blur(12px);
-}
+        /* CONFIGURAÇÃO GERAL */
 
-.soundcloud-player iframe {
-    display: block;
-    width: 100%;
-    height: 125px;
-    border: none;
-    border-radius: 8px;
-}
+        html {
+            min-height: 100%;
+            background: #050510;
+        }
 
-@media (max-width: 480px) {
-    .soundcloud-player {
-        width: 240px;
-        right: 10px;
-        bottom: 10px;
-    }
-}
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: transparent !important;
+            position: relative;
+            isolation: isolate;
+        }
 
+        /* VÍDEO DA GALÁXIA */
 
+        .galaxy-bg {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
+            background: #050510;
+        }
+
+        .galaxy-bg video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        /* CAMADA ESCURA */
+
+        .galaxy-overlay {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 16, 0.48);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* PLAYER SOUNDCLOUD COMPACTO */
+
+        .soundcloud-player {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 260px;
+            max-width: calc(100vw - 30px);
+            z-index: 1000;
+            padding: 5px;
+            background: rgba(22, 27, 34, 0.94);
+            border: 1px solid rgba(236, 72, 153, 0.65);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+        }
+
+        .soundcloud-player iframe {
+            display: block;
+            width: 100%;
+            height: 125px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .soundcloud-player {
+                width: 230px;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
     </style>
 </head>
+
 <body class="bg-transparent text-gray-100 font-sans min-h-screen selection:bg-pink-500 selection:text-white relative">
 
-    <!-- Fundo Galáxia Rotativo Preenchendo a Tela -->
-   <div class="galaxy-bg">
-    <video autoplay muted loop playsinline>
-        <source src="galaxia.mp4" type="video/mp4">
-    </video>
-</div>
+    <!-- FUNDO ANIMADO DA GALÁXIA -->
 
-<div class="galaxy-overlay"></div>
+    <div class="galaxy-bg">
+        <video autoplay muted loop playsinline preload="auto">
+            <source src="270326.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+    </div>
 
-    <!-- Header / Navbar -->
+    <div class="galaxy-overlay"></div>
+
+
+    <!-- HEADER / NAVBAR -->
+
     <header class="border-b border-borderSubtle bg-glassDark backdrop-blur-md sticky top-0 z-50 shadow-lg">
+
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+
             <div class="flex items-center space-x-3">
+
                 <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center font-bold text-white text-base shadow-lg">
                     AK
                 </div>
+
                 <div>
-                    <h1 class="font-bold text-lg tracking-wide text-white">AkemArtDev</h1>
-                    <p class="text-xs text-pink-300">"De Código a Insights"</p>
+                    <h1 class="font-bold text-lg tracking-wide text-white">
+                        AkemArtDev
+                    </h1>
+
+                    <p class="text-xs text-pink-300">
+                        "De Código a Insights"
+                    </p>
                 </div>
+
             </div>
+
             <div class="flex items-center space-x-3">
-                <a href="https://github.com/AkemArt" target="_blank" class="text-xs bg-pink-500/15 border border-pink-500/40 text-pink-300 px-3 py-1.5 rounded-lg hover:bg-pink-500/30 transition flex items-center gap-1.5 shadow-sm">
-                    <i class="fa-brands fa-github"></i> GitHub Profile
+
+                <a href="https://github.com/AkemArt"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-xs bg-pink-500/15 border border-pink-500/40 text-pink-300 px-3 py-1.5 rounded-lg hover:bg-pink-500/30 transition flex items-center gap-1.5 shadow-sm">
+
+                    <i class="fa-brands fa-github"></i>
+                    GitHub Profile
+
                 </a>
+
             </div>
+
         </div>
+
     </header>
 
-    <!-- Main Content -->
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
     <main class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-        
-        <!-- Coluna da Esquerda: Perfil / Bio -->
+
+
+        <!-- COLUNA ESQUERDA: PERFIL -->
+
         <aside class="md:col-span-1 space-y-6 bg-glassCard border border-borderSubtle rounded-2xl p-6 shadow-2xl backdrop-blur-md">
+
             <div class="flex flex-col items-center md:items-start">
-                <!-- Foto Real do GitHub com Borda Brilhante -->
+
                 <div class="relative w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-rose-500 shadow-xl mb-4">
+
                     <div class="w-full h-full rounded-full bg-glassDark flex items-center justify-center overflow-hidden">
-                        <img src="https://github.com/AkemArt.png" alt="AkemArt Foto de Perfil" class="w-full h-full object-cover">
+
+                        <img src="https://github.com/AkemArt.png"
+                             alt="AkemArt Foto de Perfil"
+                             class="w-full h-full object-cover">
+
                     </div>
+
                 </div>
-                
-                <h2 class="text-2xl font-bold text-white">AkemArtDev</h2>
-                <p class="text-gray-300 text-sm">AkemArt · she/her</p>
-                <p class="text-xs text-pink-400 font-medium mt-1">"De Código a Insights"</p>
+
+                <h2 class="text-2xl font-bold text-white">
+                    AkemArtDev
+                </h2>
+
+                <p class="text-gray-300 text-sm">
+                    AkemArt · she/her
+                </p>
+
+                <p class="text-xs text-pink-400 font-medium mt-1">
+                    "De Código a Insights"
+                </p>
+
             </div>
 
-            <!-- Descrição Exata com Láurea Acadêmica -->
+
+            <!-- BIOGRAFIA -->
+
             <p class="text-gray-200 text-sm leading-relaxed border-t border-b border-borderSubtle py-4">
+
                 Formada em Análise e Desenvolvimento de Sistemas com láurea acadêmica e pós em Engenharia de Software. Uno código, automações inteligentes e criatividade.
+
             </p>
 
-            <!-- Infos de Contato Atualizadas -->
+
+            <!-- CONTATO -->
+
             <div class="space-y-3 text-sm text-gray-200">
+
                 <div class="flex items-center gap-2.5">
+
                     <i class="fa-solid fa-location-dot text-pink-400 w-4"></i>
+
                     <span>Caraguatatuba / SP</span>
+
                 </div>
+
+
                 <div class="flex items-center gap-2.5">
+
                     <i class="fa-solid fa-envelope text-pink-400 w-4"></i>
-                    <a href="mailto:jessicaakemy25@gmail.com" class="text-pink-300 hover:underline break-all">jessicaakemy25@gmail.com</a>
+
+                    <a href="mailto:jessicaakemy25@gmail.com"
+                       class="text-pink-300 hover:underline break-all">
+
+                        jessicaakemy25@gmail.com
+
+                    </a>
+
                 </div>
+
+
                 <div class="flex items-center gap-2.5">
+
                     <i class="fa-brands fa-github text-pink-400 w-4"></i>
-                    <a href="https://github.com/AkemArt" target="_blank" class="text-pink-300 hover:underline">github.com/AkemArt</a>
+
+                    <a href="https://github.com/AkemArt"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-pink-300 hover:underline">
+
+                        github.com/AkemArt
+
+                    </a>
+
                 </div>
+
+
                 <div class="flex items-center gap-2.5">
+
                     <i class="fa-brands fa-instagram text-pink-400 w-4"></i>
-                    <a href="https://www.instagram.com/akemyjessica/" target="_blank" class="text-pink-300 hover:underline">instagram.com/akemyjessica</a>
+
+                    <a href="https://www.instagram.com/akemyjessica/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-pink-300 hover:underline">
+
+                        instagram.com/akemyjessica
+
+                    </a>
+
                 </div>
+
             </div>
 
-            <!-- Tech Stack & Áreas -->
+
+            <!-- TECNOLOGIAS -->
+
             <div class="pt-2">
-                <h3 class="text-xs font-semibold uppercase tracking-wider text-pink-400 mb-3">Tech Stack & Áreas</h3>
+
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-pink-400 mb-3">
+
+                    Tech Stack & Áreas
+
+                </h3>
+
                 <div class="flex flex-wrap gap-1.5">
-                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">Python</span>
-                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">Make.com</span>
-                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">Google Apps Script</span>
-                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">AppSheet</span>
-                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">JavaScript</span>
-                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">UI/UX</span>
+
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">
+                        Python
+                    </span>
+
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">
+                        Make.com
+                    </span>
+
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">
+                        Google Apps Script
+                    </span>
+
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">
+                        AppSheet
+                    </span>
+
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">
+                        JavaScript
+                    </span>
+
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">
+                        UI/UX
+                    </span>
+
                 </div>
+
             </div>
+
         </aside>
 
-        <!-- Coluna da Direita: Projetos Pinned -->
+
+
+        <!-- COLUNA DIREITA: PROJETOS -->
+
         <section class="md:col-span-2 space-y-6">
+
+
+            <!-- CABEÇALHO DOS PROJETOS -->
+
             <div class="flex justify-between items-center border-b border-borderSubtle pb-3 bg-glassCard px-4 py-3 rounded-xl backdrop-blur-md shadow-lg">
+
                 <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-thumbtack text-pink-400"></i> Projetos em Destaque (Pinned)
+
+                    <i class="fa-solid fa-thumbtack text-pink-400"></i>
+
+                    Projetos em Destaque (Pinned)
+
                 </h3>
-                <span class="text-xs text-pink-300 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/30">Repositórios públicos</span>
+
+                <span class="text-xs text-pink-300 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/30">
+
+                    Repositórios públicos
+
+                </span>
+
             </div>
 
-            <!-- Grid de Projetos -->
+
+
+            <!-- GRID DE PROJETOS -->
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
-                <!-- Projeto 1: Hogwarts Academy -->
+
+
+                <!-- PROJETO 1: HOGWARTS -->
+
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
+
                     <div>
+
                         <div class="flex justify-between items-start mb-2">
+
                             <h4 class="font-bold text-pink-300 flex items-center gap-2">
-                                <i class="fa-solid fa-hat-wizard"></i> Hogwarts-Academy
+
+                                <i class="fa-solid fa-hat-wizard"></i>
+
+                                Hogwarts-Academy
+
                             </h4>
-                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">Educacional</span>
+
+                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">
+
+                                Educacional
+
+                            </span>
+
                         </div>
+
                         <p class="text-sm text-gray-300 mb-4">
+
                             Plataforma educacional gratuita focada em cursos preparatórios voltados a alunos da rede pública para ENEM e vestibulares.
+
                         </p>
+
                     </div>
+
                     <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span> HTML</span>
-                        <a href="https://github.com/AkemArt/Hogwarts-Academy" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
+
+                        <span class="flex items-center gap-1.5">
+
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+
+                            HTML
+
+                        </span>
+
+                        <a href="https://github.com/AkemArt/Hogwarts-Academy"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-pink-300 hover:underline font-medium">
+
+                            Ver Repositório →
+
+                        </a>
+
                     </div>
+
                 </div>
 
-                <!-- Projeto 2: JobMail -->
+
+
+                <!-- PROJETO 2: JOBMAIL -->
+
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
+
                     <div>
+
                         <div class="flex justify-between items-start mb-2">
+
                             <h4 class="font-bold text-pink-300 flex items-center gap-2">
-                                <i class="fa-solid fa-envelope-circle-check"></i> JobMail
+
+                                <i class="fa-solid fa-envelope-circle-check"></i>
+
+                                JobMail
+
                             </h4>
-                            <span class="text-[10px] bg-rose-500/20 text-rose-200 px-2 py-0.5 rounded border border-rose-500/40">Automação</span>
+
+                            <span class="text-[10px] bg-rose-500/20 text-rose-200 px-2 py-0.5 rounded border border-rose-500/40">
+
+                                Automação
+
+                            </span>
+
                         </div>
+
                         <p class="text-sm text-gray-300 mb-4">
+
                             Automação inteligente e gerenciamento de e-mails desenvolvida com Google Apps Script e AppSheet para otimização de rotinas.
+
                         </p>
+
                     </div>
+
                     <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> Apps Script</span>
-                        <a href="https://github.com/AkemArt/JobMail" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
+
+                        <span class="flex items-center gap-1.5">
+
+                            <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+
+                            Apps Script
+
+                        </span>
+
+                        <a href="https://github.com/AkemArt/JobMail"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-pink-300 hover:underline font-medium">
+
+                            Ver Repositório →
+
+                        </a>
+
                     </div>
+
                 </div>
 
-                <!-- Projeto 3: Assistente TCC ABNT -->
+
+
+                <!-- PROJETO 3: ASSISTENTE TCC -->
+
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
+
                     <div>
+
                         <div class="flex justify-between items-start mb-2">
+
                             <h4 class="font-bold text-pink-300 flex items-center gap-2">
-                                <i class="fa-solid fa-robot"></i> Assistente-TCC-ABNT
+
+                                <i class="fa-solid fa-robot"></i>
+
+                                Assistente-TCC-ABNT
+
                             </h4>
-                            <span class="text-[10px] bg-purple-500/20 text-purple-200 px-2 py-0.5 rounded border border-purple-500/40">IA & Bot</span>
+
+                            <span class="text-[10px] bg-purple-500/20 text-purple-200 px-2 py-0.5 rounded border border-purple-500/40">
+
+                                IA & Bot
+
+                            </span>
+
                         </div>
+
                         <p class="text-sm text-gray-300 mb-4">
+
                             Bot para Discord voltado ao auxílio na elaboração de trabalhos de conclusão de curso com integração de inteligência artificial.
+
                         </p>
+
                     </div>
+
                     <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> JavaScript</span>
-                        <a href="https://github.com/AkemArt/Assistente-TCC-ABNT" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
+
+                        <span class="flex items-center gap-1.5">
+
+                            <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+
+                            JavaScript
+
+                        </span>
+
+                        <a href="https://github.com/AkemArt/Assistente-TCC-ABNT"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-pink-300 hover:underline font-medium">
+
+                            Ver Repositório →
+
+                        </a>
+
                     </div>
+
                 </div>
 
-                <!-- Projeto 4: Akemart Portfolio -->
+
+
+                <!-- PROJETO 4: PORTFÓLIO -->
+
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
+
                     <div>
+
                         <div class="flex justify-between items-start mb-2">
+
                             <h4 class="font-bold text-pink-300 flex items-center gap-2">
-                                <i class="fa-solid fa-code"></i> akemart-portfolio
+
+                                <i class="fa-solid fa-code"></i>
+
+                                akemart-portfolio
+
                             </h4>
-                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">Web Dev</span>
+
+                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">
+
+                                Web Dev
+
+                            </span>
+
                         </div>
+
                         <p class="text-sm text-gray-300 mb-4">
+
                             Portfólio profissional desenvolvido para destacar trajetórias em desenvolvimento de software, automações e design criativo.
+
                         </p>
+
                     </div>
+
                     <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
-                        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span> HTML / CSS</span>
-                        <a href="https://github.com/AkemArt/akemart-portfolio" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
+
+                        <span class="flex items-center gap-1.5">
+
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+
+                            HTML / CSS
+
+                        </span>
+
+                        <a href="https://github.com/AkemArt/akemart-portfolio"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-pink-300 hover:underline font-medium">
+
+                            Ver Repositório →
+
+                        </a>
+
                     </div>
+
                 </div>
 
             </div>
+
         </section>
+
     </main>
 
-<!-- Rodapé -->
-<footer class="border-t border-borderSubtle mt-16 py-8 px-4 bg-glassDark backdrop-blur-md relative z-10">
-    <div class="max-w-xl mx-auto text-center">
-        <p class="text-[11px] text-gray-400">
-            © 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual cósmica.
-        </p>
-    </div>
-</footer>
 
-<!-- Player SoundCloud: The Child in Us -->
-<div class="soundcloud-player">
-    <iframe
-        title="The Child in Us - Enigma | SoundCloud"
-        scrolling="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-770892280/the-child-in-us-enigma&color=%23ec4899&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false">
-    </iframe>
-</div>
+
+    <!-- RODAPÉ -->
+
+    <footer class="border-t border-borderSubtle mt-16 py-8 px-4 bg-glassDark backdrop-blur-md relative z-10">
+
+        <div class="max-w-xl mx-auto text-center">
+
+            <p class="text-[11px] text-gray-400">
+
+                © 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual cósmica.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- PLAYER SOUNDCLOUD: THE CHILD IN US -->
+
+    <div class="soundcloud-player">
+
+        <iframe
+            title="The Child in Us - Enigma | SoundCloud"
+            scrolling="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-770892280/the-child-in-us-enigma&color=%23ec4899&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false">
+        </iframe>
+
+    </div>
 
 </body>
 </html>
