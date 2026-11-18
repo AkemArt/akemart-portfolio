@@ -12,22 +12,59 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0D1117',
-                        cardBg: '#161B22',
-                        accentPink: '#EC4899',
-                        accentRose: '#F43F5E',
-                        borderSubtle: '#30363D'
+                        glassDark: 'rgba(13, 17, 23, 0.75)',
+                        glassCard: 'rgba(22, 27, 34, 0.82)',
+                        borderSubtle: 'rgba(236, 72, 153, 0.25)'
                     }
                 }
             }
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Fundo com Galáxia Animada (Zoom e Rotação suave) */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('image/galaxia.jpg') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -2;
+            animation: galaxyMove 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes galaxyMove {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.12) rotate(3deg);
+            }
+        }
+
+        /* Camada escura translúcida para legibilidade */
+        .galaxy-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 7, 10, 0.65);
+            backdrop-filter: blur(4px);
+            z-index: -1;
+        }
+    </style>
 </head>
-<body class="bg-darkBg text-gray-100 font-sans min-h-screen selection:bg-pink-500 selection:text-white">
+<body class="bg-transparent text-gray-100 font-sans min-h-screen selection:bg-pink-500 selection:text-white relative">
+
+    <!-- Fundo Galáxia Dinâmico -->
+    <div class="galaxy-bg"></div>
+    <div class="galaxy-overlay"></div>
 
     <!-- Header / Navbar -->
-    <header class="border-b border-borderSubtle bg-darkBg/90 backdrop-blur sticky top-0 z-50">
+    <header class="border-b border-borderSubtle bg-glassDark backdrop-blur-md sticky top-0 z-50 shadow-lg">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center font-bold text-white text-base shadow-lg">
@@ -35,11 +72,11 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg tracking-wide text-white">AkemArtDev</h1>
-                    <p class="text-xs text-gray-400">"De Código a Insights"</p>
+                    <p class="text-xs text-pink-300">"De Código a Insights"</p>
                 </div>
             </div>
             <div class="flex items-center space-x-3">
-                <a href="https://github.com/AkemArt" target="_blank" class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-400 px-3 py-1.5 rounded-lg hover:bg-pink-500/20 transition flex items-center gap-1.5">
+                <a href="https://github.com/AkemArt" target="_blank" class="text-xs bg-pink-500/15 border border-pink-500/40 text-pink-300 px-3 py-1.5 rounded-lg hover:bg-pink-500/30 transition flex items-center gap-1.5 shadow-sm">
                     <i class="fa-brands fa-github"></i> GitHub Profile
                 </a>
             </div>
@@ -47,147 +84,147 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <main class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
         
-        <!-- Coluna da Esquerda: Perfil / Bio Real -->
-        <aside class="md:col-span-1 space-y-6">
+        <!-- Coluna da Esquerda: Perfil / Bio -->
+        <aside class="md:col-span-1 space-y-6 bg-glassCard border border-borderSubtle rounded-2xl p-6 shadow-2xl backdrop-blur-md">
             <div class="flex flex-col items-center md:items-start">
-                <!-- Foto Real do GitHub -->
-                <div class="relative w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 to-rose-500 shadow-xl mb-4">
-                    <div class="w-full h-full rounded-full bg-cardBg flex items-center justify-center overflow-hidden">
+                <!-- Foto Real do GitHub com Borda Brilhante -->
+                <div class="relative w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-rose-500 shadow-xl mb-4">
+                    <div class="w-full h-full rounded-full bg-glassDark flex items-center justify-center overflow-hidden">
                         <img src="https://github.com/AkemArt.png" alt="AkemArt Foto de Perfil" class="w-full h-full object-cover">
                     </div>
                 </div>
                 
                 <h2 class="text-2xl font-bold text-white">AkemArtDev</h2>
-                <p class="text-gray-400 text-sm">AkemArt · she/her</p>
+                <p class="text-gray-300 text-sm">AkemArt · she/her</p>
                 <p class="text-xs text-pink-400 font-medium mt-1">"De Código a Insights"</p>
             </div>
 
             <!-- Descrição Exata com Láurea Acadêmica -->
-            <p class="text-gray-300 text-sm leading-relaxed border-t border-b border-borderSubtle py-4">
+            <p class="text-gray-200 text-sm leading-relaxed border-t border-b border-borderSubtle py-4">
                 Formada em Análise e Desenvolvimento de Sistemas com láurea acadêmica e pós em Engenharia de Software. Uno código, automações inteligentes e criatividade.
             </p>
 
             <!-- Infos de Contato Atualizadas -->
-            <div class="space-y-2.5 text-sm text-gray-300">
+            <div class="space-y-3 text-sm text-gray-200">
                 <div class="flex items-center gap-2.5">
-                    <i class="fa-solid fa-location-dot text-gray-400 w-4"></i>
+                    <i class="fa-solid fa-location-dot text-pink-400 w-4"></i>
                     <span>Caraguatatuba / SP</span>
                 </div>
                 <div class="flex items-center gap-2.5">
-                    <i class="fa-solid fa-envelope text-gray-400 w-4"></i>
-                    <a href="mailto:jessicaakemy25@gmail.com" class="text-pink-400 hover:underline">jessicaakemy25@gmail.com</a>
+                    <i class="fa-solid fa-envelope text-pink-400 w-4"></i>
+                    <a href="mailto:jessicaakemy25@gmail.com" class="text-pink-300 hover:underline break-all">jessicaakemy25@gmail.com</a>
                 </div>
                 <div class="flex items-center gap-2.5">
-                    <i class="fa-brands fa-github text-gray-400 w-4"></i>
-                    <a href="https://github.com/AkemArt" target="_blank" class="text-pink-400 hover:underline">github.com/AkemArt</a>
+                    <i class="fa-brands fa-github text-pink-400 w-4"></i>
+                    <a href="https://github.com/AkemArt" target="_blank" class="text-pink-300 hover:underline">github.com/AkemArt</a>
                 </div>
                 <div class="flex items-center gap-2.5">
-                    <i class="fa-brands fa-instagram text-gray-400 w-4"></i>
-                    <a href="https://www.instagram.com/akemyjessica/" target="_blank" class="text-pink-400 hover:underline">instagram.com/akemyjessica</a>
+                    <i class="fa-brands fa-instagram text-pink-400 w-4"></i>
+                    <a href="https://www.instagram.com/akemyjessica/" target="_blank" class="text-pink-300 hover:underline">instagram.com/akemyjessica</a>
                 </div>
             </div>
 
             <!-- Tech Stack & Áreas -->
             <div class="pt-2">
-                <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Tech Stack & Áreas</h3>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-pink-400 mb-3">Tech Stack & Áreas</h3>
                 <div class="flex flex-wrap gap-1.5">
-                    <span class="text-xs bg-cardBg border border-borderSubtle text-pink-300 px-2.5 py-1 rounded-md">Python</span>
-                    <span class="text-xs bg-cardBg border border-borderSubtle text-pink-300 px-2.5 py-1 rounded-md">Make.com</span>
-                    <span class="text-xs bg-cardBg border border-borderSubtle text-pink-300 px-2.5 py-1 rounded-md">Google Apps Script</span>
-                    <span class="text-xs bg-cardBg border border-borderSubtle text-pink-300 px-2.5 py-1 rounded-md">AppSheet</span>
-                    <span class="text-xs bg-cardBg border border-borderSubtle text-pink-300 px-2.5 py-1 rounded-md">JavaScript</span>
-                    <span class="text-xs bg-cardBg border border-borderSubtle text-pink-300 px-2.5 py-1 rounded-md">UI/UX</span>
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">Python</span>
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">Make.com</span>
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">Google Apps Script</span>
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">AppSheet</span>
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">JavaScript</span>
+                    <span class="text-xs bg-pink-500/10 border border-pink-500/30 text-pink-200 px-2.5 py-1 rounded-md">UI/UX</span>
                 </div>
             </div>
         </aside>
 
-        <!-- Coluna da Direita: Projetos Pinned Baseados no seu GitHub -->
+        <!-- Coluna da Direita: Projetos Pinned -->
         <section class="md:col-span-2 space-y-6">
-            <div class="flex justify-between items-center border-b border-borderSubtle pb-3">
+            <div class="flex justify-between items-center border-b border-borderSubtle pb-3 bg-glassCard px-4 py-3 rounded-xl backdrop-blur-md shadow-lg">
                 <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-thumbtack text-pink-500"></i> Projetos em Destaque (Pinned)
+                    <i class="fa-solid fa-thumbtack text-pink-400"></i> Projetos em Destaque (Pinned)
                 </h3>
-                <span class="text-xs text-gray-400 bg-cardBg px-2.5 py-1 rounded-full border border-borderSubtle">Repositórios públicos</span>
+                <span class="text-xs text-pink-300 bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/30">Repositórios públicos</span>
             </div>
 
-            <!-- Grid de Projetos -->
+            <!-- Grid de Projetos com Efeito Vidro -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 <!-- Projeto 1: Hogwarts Academy -->
-                <div class="bg-cardBg border border-borderSubtle rounded-xl p-5 hover:border-pink-500/50 transition flex flex-col justify-between">
+                <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-pink-400 flex items-center gap-2">
+                            <h4 class="font-bold text-pink-300 flex items-center gap-2">
                                 <i class="fa-solid fa-hat-wizard"></i> Hogwarts-Academy
                             </h4>
-                            <span class="text-[10px] bg-pink-500/10 text-pink-300 px-2 py-0.5 rounded border border-pink-500/20">Educacional</span>
+                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">Educacional</span>
                         </div>
-                        <p class="text-sm text-gray-400 mb-4">
+                        <p class="text-sm text-gray-300 mb-4">
                             Plataforma educacional gratuita focada em cursos preparatórios voltados a alunos da rede pública para ENEM e vestibulares.
                         </p>
                     </div>
-                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle/50">
+                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
                         <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span> HTML</span>
-                        <a href="https://github.com/AkemArt/Hogwarts-Academy" target="_blank" class="text-pink-400 hover:underline">Ver Repositório →</a>
+                        <a href="https://github.com/AkemArt/Hogwarts-Academy" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
                     </div>
                 </div>
 
                 <!-- Projeto 2: JobMail -->
-                <div class="bg-cardBg border border-borderSubtle rounded-xl p-5 hover:border-pink-500/50 transition flex flex-col justify-between">
+                <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-pink-400 flex items-center gap-2">
+                            <h4 class="font-bold text-pink-300 flex items-center gap-2">
                                 <i class="fa-solid fa-envelope-circle-check"></i> JobMail
                             </h4>
-                            <span class="text-[10px] bg-rose-500/10 text-rose-300 px-2 py-0.5 rounded border border-rose-500/20">Automação</span>
+                            <span class="text-[10px] bg-rose-500/20 text-rose-200 px-2 py-0.5 rounded border border-rose-500/40">Automação</span>
                         </div>
-                        <p class="text-sm text-gray-400 mb-4">
+                        <p class="text-sm text-gray-300 mb-4">
                             Automação inteligente e gerenciamento de e-mails desenvolvida com Google Apps Script e AppSheet para otimização de rotinas.
                         </p>
                     </div>
-                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle/50">
+                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
                         <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> Apps Script</span>
-                        <a href="https://github.com/AkemArt/JobMail" target="_blank" class="text-pink-400 hover:underline">Ver Repositório →</a>
+                        <a href="https://github.com/AkemArt/JobMail" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
                     </div>
                 </div>
 
                 <!-- Projeto 3: Assistente TCC ABNT -->
-                <div class="bg-cardBg border border-borderSubtle rounded-xl p-5 hover:border-pink-500/50 transition flex flex-col justify-between">
+                <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-pink-400 flex items-center gap-2">
+                            <h4 class="font-bold text-pink-300 flex items-center gap-2">
                                 <i class="fa-solid fa-robot"></i> Assistente-TCC-ABNT
                             </h4>
-                            <span class="text-[10px] bg-purple-500/10 text-purple-300 px-2 py-0.5 rounded border border-purple-500/20">IA & Bot</span>
+                            <span class="text-[10px] bg-purple-500/20 text-purple-200 px-2 py-0.5 rounded border border-purple-500/40">IA & Bot</span>
                         </div>
-                        <p class="text-sm text-gray-400 mb-4">
+                        <p class="text-sm text-gray-300 mb-4">
                             Bot para Discord voltado ao auxílio na elaboração de trabalhos de conclusão de curso com integração de inteligência artificial.
                         </p>
                     </div>
-                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle/50">
+                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
                         <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> JavaScript</span>
-                        <a href="https://github.com/AkemArt/Assistente-TCC-ABNT" target="_blank" class="text-pink-400 hover:underline">Ver Repositório →</a>
+                        <a href="https://github.com/AkemArt/Assistente-TCC-ABNT" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
                     </div>
                 </div>
 
                 <!-- Projeto 4: Akemart Portfolio -->
-                <div class="bg-cardBg border border-borderSubtle rounded-xl p-5 hover:border-pink-500/50 transition flex flex-col justify-between">
+                <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-pink-400 flex items-center gap-2">
+                            <h4 class="font-bold text-pink-300 flex items-center gap-2">
                                 <i class="fa-solid fa-code"></i> akemart-portfolio
                             </h4>
-                            <span class="text-[10px] bg-pink-500/10 text-pink-300 px-2 py-0.5 rounded border border-pink-500/20">Web Dev</span>
+                            <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">Web Dev</span>
                         </div>
-                        <p class="text-sm text-gray-400 mb-4">
+                        <p class="text-sm text-gray-300 mb-4">
                             Portfólio profissional desenvolvido para destacar trajetórias em desenvolvimento de software, automações e design criativo.
                         </p>
                     </div>
-                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle/50">
+                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
                         <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span> HTML / CSS</span>
-                        <a href="https://github.com/AkemArt/akemart-portfolio" target="_blank" class="text-pink-400 hover:underline">Ver Repositório →</a>
+                        <a href="https://github.com/AkemArt/akemart-portfolio" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
                     </div>
                 </div>
 
@@ -196,8 +233,18 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-borderSubtle mt-16 py-6 text-center text-xs text-gray-500">
-        <p>© 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual personalizada.</p>
+    <footer class="border-t border-borderSubtle mt-16 py-6 text-center text-xs text-gray-400 bg-glassDark backdrop-blur-md relative z-10">
+        <p>© 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual cósmica.</p>
     </footer>
+
+    <!-- JavaScript Opcional para interatividade extra na Galáxia (Efeito de Parallax suave com o mouse) -->
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const galaxy = document.querySelector('.galaxy-bg');
+            const x = (e.clientX / window.innerWidth - 0.5) * 15;
+            const y = (e.clientY / window.innerHeight - 0.5) * 15;
+            galaxy.style.transform = `scale(1.08) translate(${x}px, ${y}px)`;
+        });
+    </script>
 </body>
 </html>
