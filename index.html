@@ -12,9 +12,9 @@
             theme: {
                 extend: {
                     colors: {
-                        glassDark: 'rgba(13, 17, 23, 0.75)',
-                        glassCard: 'rgba(22, 27, 34, 0.82)',
-                        borderSubtle: 'rgba(236, 72, 153, 0.25)'
+                        glassDark: 'rgba(13, 17, 23, 0.78)',
+                        glassCard: 'rgba(22, 27, 34, 0.85)',
+                        borderSubtle: 'rgba(236, 72, 153, 0.3)'
                     }
                 }
             }
@@ -22,17 +22,16 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Fundo com Galáxia Rotativa e Gradativa */
+        /* Galáxia girando devagar e suavemente (45 segundos) */
         .galaxy-bg {
             position: fixed;
-            top: -20%;
-            left: -20%;
-            width: 140vw;
-            height: 140vh;
+            top: -25%;
+            left: -25%;
+            width: 150vw;
+            height: 150vh;
             background: url('images (2).jpeg') no-repeat center center;
             background-size: cover;
             z-index: -2;
-            /* Rotação contínua e suave de 360 graus combinada com leve zoom */
             animation: galaxyRotate 45s linear infinite;
         }
 
@@ -41,34 +40,34 @@
                 transform: rotate(0deg) scale(1);
             }
             50% {
-                transform: rotate(180deg) scale(1.08);
+                transform: rotate(180deg) scale(1.06);
             }
             100% {
                 transform: rotate(360deg) scale(1);
             }
         }
 
-        /* Camada escura translúcida para legibilidade perfeita */
+        /* Camada translúcida escura */
         .galaxy-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(5, 7, 10, 0.65);
-            backdrop-filter: blur(4px);
+            background: rgba(5, 7, 10, 0.68);
+            backdrop-filter: blur(5px);
             z-index: -1;
         }
     </style>
 </head>
 <body class="bg-transparent text-gray-100 font-sans min-h-screen selection:bg-pink-500 selection:text-white relative">
 
-    <!-- Fundo Galáxia Rotativo Dinâmico -->
+    <!-- Fundo Galáxia Dinâmico -->
     <div class="galaxy-bg"></div>
     <div class="galaxy-overlay"></div>
 
     <!-- Header / Navbar -->
-    <header class="border-b border-borderSubtle bg-glassDark backdrop-blur-md sticky top-0 z-50 shadow-lg">
+    <header class="border-b border-borderSubtle bg-glassDark backdrop-blur-md sticky top-0 z-50 shadow-xl">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center font-bold text-white text-base shadow-lg">
@@ -93,7 +92,7 @@
         <!-- Coluna da Esquerda: Perfil / Bio -->
         <aside class="md:col-span-1 space-y-6 bg-glassCard border border-borderSubtle rounded-2xl p-6 shadow-2xl backdrop-blur-md">
             <div class="flex flex-col items-center md:items-start">
-                <!-- Foto Real do GitHub com Borda Brilhante -->
+                <!-- Foto Real do GitHub -->
                 <div class="relative w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-rose-500 shadow-xl mb-4">
                     <div class="w-full h-full rounded-full bg-glassDark flex items-center justify-center overflow-hidden">
                         <img src="https://github.com/AkemArt.png" alt="AkemArt Foto de Perfil" class="w-full h-full object-cover">
@@ -105,12 +104,12 @@
                 <p class="text-xs text-pink-400 font-medium mt-1">"De Código a Insights"</p>
             </div>
 
-            <!-- Descrição Exata com Láurea Acadêmica -->
+            <!-- Descrição com Láurea Acadêmica -->
             <p class="text-gray-200 text-sm leading-relaxed border-t border-b border-borderSubtle py-4">
                 Formada em Análise e Desenvolvimento de Sistemas com láurea acadêmica e pós em Engenharia de Software. Uno código, automações inteligentes e criatividade.
             </p>
 
-            <!-- Infos de Contato Atualizadas -->
+            <!-- Infos de Contato -->
             <div class="space-y-3 text-sm text-gray-200">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-location-dot text-pink-400 w-4"></i>
@@ -156,7 +155,7 @@
             <!-- Grid de Projetos -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                <!-- Projeto 1: Hogwarts Academy -->
+                <!-- Projeto 1 -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
@@ -175,7 +174,7 @@
                     </div>
                 </div>
 
-                <!-- Projeto 2: JobMail -->
+                <!-- Projeto 2 -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
@@ -194,7 +193,7 @@
                     </div>
                 </div>
 
-                <!-- Projeto 3: Assistente TCC ABNT -->
+                <!-- Projeto 3 -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
@@ -213,11 +212,11 @@
                     </div>
                 </div>
 
-                <!-- Projeto 4: Akemart Portfolio -->
+                <!-- Projeto 4 -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-pink-300 flex items-center gap-2">O
+                            <h4 class="font-bold text-pink-300 flex items-center gap-2">
                                 <i class="fa-solid fa-code"></i> akemart-portfolio
                             </h4>
                             <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">Web Dev</span>
@@ -226,7 +225,7 @@
                             Portfólio profissional desenvolvido para destacar trajetórias em desenvolvimento de software, automações e design criativo.
                         </p>
                     </div>
-                    <div class="flex items-center z-10 justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
+                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
                         <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span> HTML / CSS</span>
                         <a href="https://github.com/AkemArt/akemart-portfolio" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
                     </div>
@@ -236,9 +235,16 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-borderSubtle mt-16 py-6 text-center text-xs text-gray-400 bg-glassDark backdrop-blur-md relative z-10">
-        <p>© 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual cósmica rotativa.</p>
+    <!-- Rodapé com Player de Piano Ampliado -->
+    <footer class="border-t border-borderSubtle mt-16 py-8 px-4 bg-glassDark backdrop-blur-md relative z-10">
+        <div class="max-w-xl mx-auto flex flex-col items-center gap-4 text-center">
+            <p class="text-xs text-pink-300 flex items-center gap-2">
+                <i class="fa-solid fa-music animate-pulse"></i> Trilha Sonora Cósmica (Piano Calmo & Melancólico)
+            </p>
+            <!-- Player Spotify com altura expandida para melhor visualização -->
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <p class="text-[11px] text-gray-400">© 2026 AkemArtDev · Desenvolvido com código limpo e galáxia interativa.</p>
+        </div>
     </footer>
 </body>
 </html>
