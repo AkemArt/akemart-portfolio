@@ -34,26 +34,39 @@
     padding: 8px;
     background: rgba(22, 27, 34, 0.94);
     border: 1px solid rgba(236, 72, 153, 0.55);
-    border-radius: 14px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    
+/* Player SoundCloud compacto */
+.soundcloud-player {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 280px;
+    max-width: calc(100vw - 30px);
+    z-index: 1000;
+    padding: 5px;
+    background: rgba(22, 27, 34, 0.94);
+    border: 1px solid rgba(236, 72, 153, 0.55);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
     backdrop-filter: blur(12px);
 }
 
 .soundcloud-player iframe {
     display: block;
     width: 100%;
-    height: 166px;
+    height: 125px;
     border: none;
-    border-radius: 9px;
+    border-radius: 8px;
 }
 
 @media (max-width: 480px) {
     .soundcloud-player {
+        width: 240px;
         right: 10px;
         bottom: 10px;
-        max-width: calc(100vw - 20px);
     }
 }
+
 
     </style>
 </head>
