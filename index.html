@@ -22,43 +22,39 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Fundo com Galáxia preenchendo 100% da tela sem espaços em branco e rotacionando suavemente */
-        .galaxy-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: url('images (2).jpeg') no-repeat center center;
-            background-size: cover;
-            z-index: -2;
-            transform-origin: center center;
-            animation: galaxyRotate 60s linear infinite;
-        }
+        
+/* Player SoundCloud flutuante */
+.soundcloud-player {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    width: 340px;
+    max-width: calc(100vw - 36px);
+    z-index: 1000;
+    padding: 8px;
+    background: rgba(22, 27, 34, 0.94);
+    border: 1px solid rgba(236, 72, 153, 0.55);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+}
 
-        @keyframes galaxyRotate {
-            0% {
-                transform: rotate(0deg) scale(1.05);
-            }
-            50% {
-                transform: rotate(180deg) scale(1.08);
-            }
-            100% {
-                transform: rotate(360deg) scale(1.05);
-            }
-        }
+.soundcloud-player iframe {
+    display: block;
+    width: 100%;
+    height: 166px;
+    border: none;
+    border-radius: 9px;
+}
 
-        /* Camada escura translúcida para legibilidade perfeita */
-        .galaxy-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(5, 7, 10, 0.68);
-            backdrop-filter: blur(4px);
-            z-index: -1;
-        }
+@media (max-width: 480px) {
+    .soundcloud-player {
+        right: 10px;
+        bottom: 10px;
+        max-width: calc(100vw - 20px);
+    }
+}
+
     </style>
 </head>
 <body class="bg-transparent text-gray-100 font-sans min-h-screen selection:bg-pink-500 selection:text-white relative">
@@ -236,25 +232,24 @@
         </section>
     </main>
 
-    <!-- Rodapé com Player da Enya e Controle de Volume -->
-    <footer class="border-t border-borderSubtle mt-16 py-8 px-4 bg-glassDark backdrop-blur-md relative z-10">
-        <div class="max-w-xl mx-auto flex flex-col items-center gap-4 text-center">
-            
-            <div class="flex items-center justify-between w-full px-2">
-                <p class="text-xs text-pink-300 flex items-center gap-2">
-                    <i class="fa-solid fa-music animate-pulse"></i> Atmosfera Sonora: Enya (Experiência Imersiva)
-                </p>
-                <div class="flex items-center gap-2 bg-glassCard border border-borderSubtle px-3 py-1.5 rounded-full shadow-md text-xs text-pink-200">
-                    <i class="fa-solid fa-volume-high text-pink-400"></i>
-                    <span>Áudio Ativo</span>
-                </div>
-            </div>
+<!-- Rodapé -->
+<footer class="border-t border-borderSubtle mt-16 py-8 px-4 bg-glassDark backdrop-blur-md relative z-10">
+    <div class="max-w-xl mx-auto text-center">
+        <p class="text-[11px] text-gray-400">
+            © 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual cósmica.
+        </p>
+    </div>
+</footer>
 
-            <!-- Player Spotify da Enya -->
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6Wx2EbvezuVNvMBHJcPLXg?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            
-            <p class="text-[11px] text-gray-400">© 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual cósmica.</p>
-        </div>
-    </footer>
+<!-- Player SoundCloud: The Child in Us -->
+<div class="soundcloud-player">
+    <iframe
+        title="The Child in Us - Enigma | SoundCloud"
+        scrolling="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-770892280/the-child-in-us-enigma&color=%23ec4899&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false">
+    </iframe>
+</div>
+
 </body>
 </html>
