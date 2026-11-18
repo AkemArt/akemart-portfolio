@@ -22,30 +22,29 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Fundo com Galáxia Rotativa e Gradativa Suave */
+        /* Fundo com Galáxia preenchendo 100% da tela sem espaços em branco e rotacionando suavemente */
         .galaxy-bg {
             position: fixed;
-            top: -20%;
-            left: -20%;
-            width: 140vw;
-            height: 140vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             background: url('images (2).jpeg') no-repeat center center;
             background-size: cover;
             z-index: -2;
-            /* Rotação lenta e contínua de 60s para maior elegância */
-            animation: galaxyRotate 60s linear infinite;
             transform-origin: center center;
+            animation: galaxyRotate 60s linear infinite;
         }
 
         @keyframes galaxyRotate {
             0% {
-                transform: rotate(0deg) scale(1);
+                transform: rotate(0deg) scale(1.05);
             }
             50% {
-                transform: rotate(180deg) scale(1.05);
+                transform: rotate(180deg) scale(1.08);
             }
             100% {
-                transform: rotate(360deg) scale(1);
+                transform: rotate(360deg) scale(1.05);
             }
         }
 
@@ -64,7 +63,7 @@
 </head>
 <body class="bg-transparent text-gray-100 font-sans min-h-screen selection:bg-pink-500 selection:text-white relative">
 
-    <!-- Fundo Galáxia Rotativo Dinâmico -->
+    <!-- Fundo Galáxia Rotativo Preenchendo a Tela -->
     <div class="galaxy-bg"></div>
     <div class="galaxy-overlay"></div>
 
@@ -218,7 +217,7 @@
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-pink-300 flex items-center gap-2">O
+                            <h4 class="font-bold text-pink-300 flex items-center gap-2">
                                 <i class="fa-solid fa-code"></i> akemart-portfolio
                             </h4>
                             <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">Web Dev</span>
@@ -227,7 +226,7 @@
                             Portfólio profissional desenvolvido para destacar trajetórias em desenvolvimento de software, automações e design criativo.
                         </p>
                     </div>
-                    <div class="flex items-center z-10 justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
+                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
                         <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span> HTML / CSS</span>
                         <a href="https://github.com/AkemArt/akemart-portfolio" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
                     </div>
@@ -237,7 +236,7 @@
         </section>
     </main>
 
-    <!-- Rodapé com Player da Enya e Botão de Controle de Volume -->
+    <!-- Rodapé com Player da Enya e Controle de Volume -->
     <footer class="border-t border-borderSubtle mt-16 py-8 px-4 bg-glassDark backdrop-blur-md relative z-10">
         <div class="max-w-xl mx-auto flex flex-col items-center gap-4 text-center">
             
@@ -245,13 +244,17 @@
                 <p class="text-xs text-pink-300 flex items-center gap-2">
                     <i class="fa-solid fa-music animate-pulse"></i> Atmosfera Sonora: Enya (Experiência Imersiva)
                 </p>
-                <!-- Botão de Ajuste de Volume / Experiência -->
                 <div class="flex items-center gap-2 bg-glassCard border border-borderSubtle px-3 py-1.5 rounded-full shadow-md text-xs text-pink-200">
                     <i class="fa-solid fa-volume-high text-pink-400"></i>
-                    <span>Volume:</span>
-                    <input type="range" id="volumeSlider" min="0" max="100" value="80" class="w-16 accent-pink-500 cursor-pointer">
+                    <span>Áudio Ativo</span>
                 </div>
             </div>
 
             <!-- Player Spotify da Enya -->
-            <iframe id="spotifyPlayer" style="border-radius:12px" src="
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6Wx2EbvezuVNvMBHJcPLXg?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            
+            <p class="text-[11px] text-gray-400">© 2026 AkemArtDev · Desenvolvido com código limpo e identidade visual cósmica.</p>
+        </div>
+    </footer>
+</body>
+</html>
