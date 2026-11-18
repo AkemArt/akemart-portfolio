@@ -12,9 +12,9 @@
             theme: {
                 extend: {
                     colors: {
-                        glassDark: 'rgba(13, 17, 23, 0.78)',
-                        glassCard: 'rgba(22, 27, 34, 0.85)',
-                        borderSubtle: 'rgba(236, 72, 153, 0.3)'
+                        glassDark: 'rgba(13, 17, 23, 0.75)',
+                        glassCard: 'rgba(22, 27, 34, 0.82)',
+                        borderSubtle: 'rgba(236, 72, 153, 0.25)'
                     }
                 }
             }
@@ -22,50 +22,54 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Galáxia rotacionando lentamente apenas no fundo, fixada e sem girar a estrutura do site */
+        /* Fundo com Galáxia Rotativa e Gradativa Suave */
         .galaxy-bg {
             position: fixed;
-            top: -10%;
-            left: -10%;
-            width: 120vw;
-            height: 120vh;
+            top: -20%;
+            left: -20%;
+            width: 140vw;
+            height: 140vh;
             background: url('images (2).jpeg') no-repeat center center;
             background-size: cover;
             z-index: -2;
+            /* Rotação lenta e contínua de 60s para maior elegância */
+            animation: galaxyRotate 60s linear infinite;
             transform-origin: center center;
-            animation: slowGalaxyRotate 90s linear infinite;
         }
 
-        @keyframes slowGalaxyRotate {
+        @keyframes galaxyRotate {
             0% {
-                transform: rotate(0deg);
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.05);
             }
             100% {
-                transform: rotate(360deg);
+                transform: rotate(360deg) scale(1);
             }
         }
 
-        /* Camada escura translúcida elegante */
+        /* Camada escura translúcida para legibilidade perfeita */
         .galaxy-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(5, 7, 10, 0.7);
-            backdrop-filter: blur(5px);
+            background: rgba(5, 7, 10, 0.68);
+            backdrop-filter: blur(4px);
             z-index: -1;
         }
     </style>
 </head>
 <body class="bg-transparent text-gray-100 font-sans min-h-screen selection:bg-pink-500 selection:text-white relative">
 
-    <!-- Fundo Galáxia Estático na Tela e Rotativo Internamente -->
+    <!-- Fundo Galáxia Rotativo Dinâmico -->
     <div class="galaxy-bg"></div>
     <div class="galaxy-overlay"></div>
 
     <!-- Header / Navbar -->
-    <header class="border-b border-borderSubtle bg-glassDark backdrop-blur-md sticky top-0 z-50 shadow-xl">
+    <header class="border-b border-borderSubtle bg-glassDark backdrop-blur-md sticky top-0 z-50 shadow-lg">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center font-bold text-white text-base shadow-lg">
@@ -90,7 +94,7 @@
         <!-- Coluna da Esquerda: Perfil / Bio -->
         <aside class="md:col-span-1 space-y-6 bg-glassCard border border-borderSubtle rounded-2xl p-6 shadow-2xl backdrop-blur-md">
             <div class="flex flex-col items-center md:items-start">
-                <!-- Foto Real do GitHub -->
+                <!-- Foto Real do GitHub com Borda Brilhante -->
                 <div class="relative w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-rose-500 shadow-xl mb-4">
                     <div class="w-full h-full rounded-full bg-glassDark flex items-center justify-center overflow-hidden">
                         <img src="https://github.com/AkemArt.png" alt="AkemArt Foto de Perfil" class="w-full h-full object-cover">
@@ -102,12 +106,12 @@
                 <p class="text-xs text-pink-400 font-medium mt-1">"De Código a Insights"</p>
             </div>
 
-            <!-- Descrição com Láurea Acadêmica -->
+            <!-- Descrição Exata com Láurea Acadêmica -->
             <p class="text-gray-200 text-sm leading-relaxed border-t border-b border-borderSubtle py-4">
                 Formada em Análise e Desenvolvimento de Sistemas com láurea acadêmica e pós em Engenharia de Software. Uno código, automações inteligentes e criatividade.
             </p>
 
-            <!-- Infos de Contato -->
+            <!-- Infos de Contato Atualizadas -->
             <div class="space-y-3 text-sm text-gray-200">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-location-dot text-pink-400 w-4"></i>
@@ -153,7 +157,7 @@
             <!-- Grid de Projetos -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                <!-- Projeto 1 -->
+                <!-- Projeto 1: Hogwarts Academy -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
@@ -172,7 +176,7 @@
                     </div>
                 </div>
 
-                <!-- Projeto 2 -->
+                <!-- Projeto 2: JobMail -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
@@ -191,7 +195,7 @@
                     </div>
                 </div>
 
-                <!-- Projeto 3 -->
+                <!-- Projeto 3: Assistente TCC ABNT -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
@@ -210,11 +214,11 @@
                     </div>
                 </div>
 
-                <!-- Projeto 4 -->
+                <!-- Projeto 4: Akemart Portfolio -->
                 <div class="bg-glassCard border border-borderSubtle rounded-xl p-5 hover:border-pink-400 transition transform hover:-translate-y-1 shadow-xl flex flex-col justify-between backdrop-blur-md">
                     <div>
                         <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-pink-300 flex items-center gap-2">
+                            <h4 class="font-bold text-pink-300 flex items-center gap-2">O
                                 <i class="fa-solid fa-code"></i> akemart-portfolio
                             </h4>
                             <span class="text-[10px] bg-pink-500/20 text-pink-200 px-2 py-0.5 rounded border border-pink-500/40">Web Dev</span>
@@ -223,7 +227,7 @@
                             Portfólio profissional desenvolvido para destacar trajetórias em desenvolvimento de software, automações e design criativo.
                         </p>
                     </div>
-                    <div class="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
+                    <div class="flex items-center z-10 justify-between text-xs text-gray-400 pt-3 border-t border-borderSubtle">
                         <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-400"></span> HTML / CSS</span>
                         <a href="https://github.com/AkemArt/akemart-portfolio" target="_blank" class="text-pink-300 hover:underline font-medium">Ver Repositório →</a>
                     </div>
@@ -233,16 +237,21 @@
         </section>
     </main>
 
-    <!-- Rodapé com Player da Enya (Atmosfera Céltica / New Age) -->
+    <!-- Rodapé com Player da Enya e Botão de Controle de Volume -->
     <footer class="border-t border-borderSubtle mt-16 py-8 px-4 bg-glassDark backdrop-blur-md relative z-10">
         <div class="max-w-xl mx-auto flex flex-col items-center gap-4 text-center">
-            <p class="text-xs text-pink-300 flex items-center gap-2">
-                <i class="fa-solid fa-compact-disc animate-spin"></i> Atmosfera Sonora: Enya & Sons Instrumentais Cósmicos
-            </p>
+            
+            <div class="flex items-center justify-between w-full px-2">
+                <p class="text-xs text-pink-300 flex items-center gap-2">
+                    <i class="fa-solid fa-music animate-pulse"></i> Atmosfera Sonora: Enya (Experiência Imersiva)
+                </p>
+                <!-- Botão de Ajuste de Volume / Experiência -->
+                <div class="flex items-center gap-2 bg-glassCard border border-borderSubtle px-3 py-1.5 rounded-full shadow-md text-xs text-pink-200">
+                    <i class="fa-solid fa-volume-high text-pink-400"></i>
+                    <span>Volume:</span>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="80" class="w-16 accent-pink-500 cursor-pointer">
+                </div>
+            </div>
+
             <!-- Player Spotify da Enya -->
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/6Wx2EbvezuVNvMBHJcPLXg?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <p class="text-[11px] text-gray-400">© 2026 AkemArtDev · Desenvolvido com design cósmico imersivo.</p>
-        </div>
-    </footer>
-</body>
-</html>
+            <iframe id="spotifyPlayer" style="border-radius:12px" src="
